@@ -3,16 +3,24 @@ A C# project where has a Test.txt file, this file inside has multiple rows, we r
 
 ## Procedure:
  1. Find the file path from the data folder.
-        var path = Path.Combine(Environment.CurrentDirectory, "Data", "Test.txt");
+ ```csharp
+ var path = Path.Combine(Environment.CurrentDirectory, "Data", "Test.txt");
+
+```
 
  2. Read the all lines from the file.
-        string[] lines = File.ReadAllLines(path);
+ ```csharp
+string[] lines = File.ReadAllLines(path);
+```
 
 3. Assume a model according the depend on Text file data. Here i assume a model which name is information.      Since i know the file has multiple rows. So i create a list in 24 no line.
-        var information = new List<Information>();
+```csharp
+var information = new List<Information>();
+
+```
 
 4. Here i use a loop for each rows
-
+ ```csharp
         foreach (var line in lines)
         {
             /*
@@ -33,11 +41,14 @@ A C# project where has a Test.txt file, this file inside has multiple rows, we r
                 ContactNo = lineParts[5],
             });
         }
+```
 
-5. Here is the final result
+5. Here is the final result:
+ ```csharp
         Console.WriteLine(@"The whole output file are generated from \data\test.txt file");
         foreach (var info in information)
         {
 
             Console.WriteLine($"SL:{info.Id} Name: {info.FirstName} {info.MiddleName} {info.LastName} Location: {info.Location} Contact: {info.ContactNo}");
         }
+```
